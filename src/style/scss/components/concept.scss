@@ -1,0 +1,114 @@
+.concept {
+  width: 100%;
+  height: auto;
+
+  padding-top: 170px;
+  padding-bottom: 49px;
+
+  background: url("../images/banner-concept.png") no-repeat;
+  background-size: cover;
+
+  & > .container {
+    display: flex;
+    flex-direction: column;
+    gap: 121px;
+  }
+
+  &__title {
+    max-width: 504px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    &_heading {
+      @include heading-first;
+      color: $background-color;
+    }
+
+    &_divider {
+      width: 100%;
+      height: 8px;
+
+      background: linear-gradient(
+        90deg,
+        #e27410 0%,
+        rgba(196, 196, 196, 0) 100%,
+        #025ea1 100%
+      );
+    }
+
+    &_text {
+      @include par-three;
+      max-width: 485px;
+      color: $background-color;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 13px;
+
+    @media (min-width: 320px) and (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    &_item {
+      min-width: calc(33% - 61px);
+      height: 89px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      padding-left: 24px;
+      padding-top: 16px;
+      padding-bottom: 21px;
+      padding-right: 24px;
+
+      background-color: $background-color;
+
+      transition: $main-transition;
+
+      @media (max-width: 1024px) {
+        min-width: auto;
+        padding-right: 21px;
+      }
+
+      & > p {
+        @include par-three;
+        color: $text-color;
+        transition: $main-transition;
+
+        @media (min-width: 767px) and (max-width: 1024px) {
+          @include par-six;
+        }
+      }
+
+      & > svg {
+        @media (max-width: 768px) {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      & > svg > path {
+        fill: $accent-color;
+        transition: $main-transition;
+      }
+
+      &:hover {
+        background-color: $hover-color;
+        transform: translateY(-16px);
+
+        & > p {
+          color: $background-color;
+        }
+
+        & > svg > path {
+          fill: $background-color;
+        }
+      }
+    }
+  }
+}

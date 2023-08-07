@@ -1,0 +1,246 @@
+.quest {
+  margin-top: 114px;
+  padding: 120px 0;
+  background: $background-linear-color;
+
+  & > .container {
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 64px;
+  }
+
+  &__title {
+    @include heading-second;
+    color: $background-color;
+
+    @media (max-width: 1024px) {
+      max-width: 370px;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    height: 100%;
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      width: 100%;
+    }
+    @media (min-width: 319px) and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  &__form {
+    max-width: 764px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    @media (max-width: 1024px) {
+      justify-content: flex-start;
+      width: 504px;
+    }
+    @media (min-width: 768px) and (max-width: 1024px) {
+      width: 100%;
+      justify-content: flex-start;
+    }
+    @media (min-width: 319px) and (max-width: 768px) {
+      width: 100%;
+    }
+
+    &_inputs {
+      width: 370px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+
+      @media (max-width: 1024px) {
+        width: 240px;
+        justify-content: flex-start;
+      }
+      @media (min-width: 768px) and (max-width: 1024px) {
+        flex-direction: row;
+        width: 100%;
+      }
+      @media (min-width: 319px) and (max-width: 768px) {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      & input {
+        width: 100%;
+
+        padding: 11px 16px;
+
+        border: 1px solid $background-color;
+        border-radius: 4px;
+
+        color: $text-color;
+
+        &:active,
+        &:focus,
+        &:target {
+          border: 1px solid $accent-color;
+        }
+      }
+    }
+
+    &_textarea {
+      width: 370px;
+      @media (max-width: 1024px) {
+      }
+      @media (min-width: 768px) and (max-width: 1024px) {
+        max-width: 66%;
+      }
+      @media (min-width: 319px) and (max-width: 768px) {
+        width: 100%;
+      }
+
+      & textarea {
+        width: 100%;
+        min-height: 194px;
+
+        padding: 11px 16px;
+
+        border: 1px solid $background-color;
+        border-radius: 4px;
+        color: $text-color;
+
+        &:active,
+        &:focus,
+        &:target {
+          border: 1px solid $accent-color;
+        }
+        @media (min-width: 768px) and (max-width: 1024px) {
+          min-height: 132px;
+        }
+        @media (min-width: 319px) and (max-width: 768px) {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        width: 240px;
+        justify-content: flex-start;
+      }
+      @media (min-width: 768px) and (max-width: 1024px) {
+        width: 100%;
+      }
+      @media (min-width: 319px) and (max-width: 768px) {
+        width: 100%;
+      }
+    }
+
+    &_btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        width: 30%;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      @media (min-width: 319px) and (max-width: 768px) {
+        width: 100%;
+        justify-content: center;
+      }
+
+      & > label {
+        @include checkbox;
+        color: $background-color;
+
+        & > p > strong {
+          color: $accent-color;
+          font-weight: 400;
+        }
+
+        @media (max-width: 1024px) {
+          & > p {
+            width: 179px;
+          }
+        }
+      }
+
+      & > button {
+        @include button-primary;
+        width: 370px;
+        @media (max-width: 1024px) {
+          width: 240px;
+        }
+        @media (min-width: 768px) and (max-width: 1024px) {
+          width: 217px;
+        }
+        @media (min-width: 319px) and (max-width: 768px) {
+        }
+      }
+
+      @media (max-width: 1024px) {
+      }
+      @media (min-width: 768px) and (max-width: 1024px) {
+        flex-direction: column;
+      }
+      @media (min-width: 319px) and (max-width: 768px) {
+      }
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+
+    &_row {
+      display: flex;
+      flex-direction: column;
+      gap: 37px;
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        flex-direction: row;
+      }
+      @media (min-width: 319px) and (max-width: 768px) {
+      }
+    }
+
+    &_item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      & > span {
+        & > p {
+          @include par-seven;
+          color: $background-color;
+        }
+
+        & > a {
+          @include par_two;
+          color: $background-color;
+        }
+      }
+    }
+  }
+
+  &__divider {
+    width: 3px;
+    min-height: 100%;
+
+    background-color: $background-color;
+
+    @media (max-width: 1500px) {
+      display: none;
+    }
+  }
+}

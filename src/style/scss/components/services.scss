@@ -1,0 +1,231 @@
+.services {
+  margin-top: 90px;
+
+  & > .container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    &_heading {
+      @include heading-second;
+      color: $heading-color;
+      transition: $main-transition;
+    }
+
+    &_icon {
+      transition: $main-transition;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        .services__title_heading {
+          color: $hover-color;
+        }
+
+        .services__title_icon {
+          transform: translateX(8px);
+        }
+      }
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 260px);
+    grid-template-areas: "first second third" "first fourth fifth";
+
+    column-gap: 40px;
+    row-gap: 40px;
+
+    @media (min-width: 768px) and (max-width: 1900px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 260px);
+      grid-template-areas: "first second" "first fourth" "third fifth";
+    }
+
+    @media (min-width: 320px) and (max-width: 768px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, 200px);
+      grid-template-areas: "first" "second" "third" "fourth" "fifth";
+    }
+  }
+
+  &__item {
+    height: 100%;
+    width: 100%;
+
+    display: block;
+
+    position: relative;
+    overflow: hidden;
+
+    padding: 40px 32px;
+
+    background: $background-linear-color;
+    border-radius: 4px;
+
+    transition: $main-transition;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      background: $hover-color;
+      top: 0;
+      left: 0;
+
+      opacity: 0;
+
+      transition: $main-transition;
+    }
+
+    &_heading {
+      @include par-one;
+      color: $background-color;
+      position: relative;
+      z-index: 3;
+    }
+
+    & > span {
+      width: 100%;
+      height: 260px;
+
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: url("../images/small-static-service-bg.png") left bottom
+        no-repeat;
+    }
+
+    &_background {
+      position: absolute;
+      left: 0;
+    }
+
+    &_icon {
+      position: absolute;
+      left: 22px;
+      bottom: 32px;
+      opacity: 1;
+      transition: $main-transition;
+
+      @media (min-width: 320px) and (max-width: 768px) {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    &_link {
+      @include par-two;
+      text-decoration: underline;
+
+      display: flex;
+      gap: 8px;
+
+      position: absolute;
+      left: 32px;
+      bottom: 40px;
+
+      transform: translateY(120px);
+      transition: $main-transition;
+
+      color: $background-color;
+      z-index: 3;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+
+        transform: translateY(-16px);
+
+        .services__item_icon {
+          opacity: 0;
+        }
+
+        .services__item_link {
+          transform: translateY(0);
+        }
+
+        & > span {
+          background: url("../images/small-hover-service-bg.png") left bottom
+            no-repeat;
+        }
+      }
+    }
+
+    &.first {
+      grid-area: first;
+      padding: 40px;
+
+      & > span {
+        background: url("../images/big-statich-service-bg.png") left no-repeat;
+      }
+
+      @media (min-width: 320px) and (max-width: 768px) {
+        & > span {
+          background: url("../images/small-static-service-bg.png") left bottom
+            no-repeat;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            & > span {
+              background: url("../images/small-hover-service-bg.png") left
+                no-repeat;
+            }
+          }
+        }
+      }
+
+      &_icon {
+        bottom: 40px;
+        left: 48px;
+
+        @media (min-width: 320px) and (max-width: 768px) {
+          left: 22px;
+          bottom: 32px;
+          width: 48px;
+          height: 48px;
+        }
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          & > span {
+            background: url("../images/big-hover-service-bg.png") left no-repeat;
+          }
+        }
+      }
+    }
+    &.second {
+      grid-area: second;
+    }
+    &.third {
+      grid-area: third;
+    }
+    &.fourth {
+      grid-area: fourth;
+    }
+    &.fifth {
+      grid-area: fifth;
+    }
+  }
+}

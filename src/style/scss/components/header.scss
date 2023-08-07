@@ -1,0 +1,421 @@
+.header {
+  /* UPHEADER */
+  &__links {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+
+    @media (min-width: 320px) and (max-width: 1900px) {
+      gap: 23px;
+    }
+
+    &_list {
+      display: flex;
+      gap: 40px;
+
+      @media (min-width: 320px) and (max-width: 1900px) {
+        gap: 23px;
+      }
+    }
+
+    &_item {
+      & > a {
+        @include par-six;
+        color: $text-color;
+        transition: $main-transition;
+
+        @media (hover: hover) {
+          &:hover {
+            color: $accent-color;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    &_btn {
+      @include par-six;
+      color: $text-color;
+
+      padding: 4px 24px;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      border: 1px solid $accent-color;
+      border-radius: 4px;
+
+      transition: $main-transition;
+
+      &:focus {
+        border: 1px solid $focus-color;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: $hover-color;
+          border: 1px solid $hover-color;
+        }
+      }
+
+      @media (min-width: 320px) and (max-width: 1024px) {
+        padding: 4px;
+        & > span {
+          display: none;
+        }
+      }
+    }
+
+    &_tel {
+      @include par-four;
+      color: $text-color;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  /* MAIN HEADER */
+  &__main {
+    @media (min-width: 320px) and (max-width: 768px) {
+      display: none;
+    }
+
+    background-color: white;
+
+    & > .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &_logo {
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+
+    &_nav {
+      padding-bottom: 43px;
+      padding-top: 12px;
+
+      & > ul {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 64px;
+
+        @media (max-width: 1024px) {
+          gap: 50px;
+        }
+
+        & > li {
+          position: relative;
+
+          &:first-child {
+            display: none;
+
+            @media (max-width: 1024px) {
+              display: block;
+              width: 48px;
+              height: 48px;
+
+              & > a > img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+          &:last-child {
+            display: none;
+
+            @media (max-width: 1900px) {
+              display: block;
+            }
+          }
+
+          @media (min-width: 1024px) and (max-width: 1900px) {
+            &:nth-child(4) {
+              display: none;
+            }
+            &:nth-child(5) {
+              display: none;
+            }
+            &:nth-child(6) {
+              display: none;
+            }
+          }
+
+          @media (min-width: 768px) and (max-width: 1024px) {
+            &:nth-child(3) {
+              display: none;
+            }
+            &:nth-child(4) {
+              display: none;
+            }
+            &:nth-child(5) {
+              display: none;
+            }
+            &:nth-child(6) {
+              display: none;
+            }
+          }
+
+          /* TABS OPEN */
+          &.tabs:hover {
+            & > ul {
+              opacity: 1;
+            }
+          }
+        }
+
+        & > li > a {
+          @include par-two;
+          color: $heading-color;
+          transition: $main-transition;
+          position: relative;
+
+          display: flex;
+          justify-content: center;
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: -15px;
+
+            width: 12px;
+            height: 12px;
+            transform: rotate(45deg);
+            background-color: $accent-color;
+
+            opacity: 0;
+
+            transition: opacity ease 0.3s;
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              color: $accent-color;
+
+              &::before {
+                opacity: 1;
+              }
+            }
+          }
+        }
+
+        /* TABS */
+        & > li > ul {
+          overflow: hidden;
+          width: 453px;
+          padding: 24px 30px;
+
+          position: absolute;
+          left: 0;
+
+          background-color: $background-color;
+          border-top: 2px solid $accent-color;
+          bottom: -520px;
+
+          display: flex;
+          flex-direction: column;
+          gap: 48px;
+
+          opacity: 0;
+          transition: $main-transition;
+
+          & > li > a {
+            @include par-three;
+            max-width: 300px;
+            color: $heading-color;
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            transition: $main-transition;
+
+            &::after {
+              content: "";
+              display: block;
+              position: absolute;
+              left: -58px;
+              /* top: 0; */
+
+              width: 44px;
+              height: 44px;
+
+              background-color: $hover-color;
+              transform: rotate(45deg);
+              border-radius: 10px;
+
+              opacity: 0;
+              transition: opacity ease-in 0.3s;
+            }
+
+            @media (hover: hover) {
+              &:hover {
+                color: $accent-color;
+
+                &::after {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* FIXED HEADER */
+  &__fixed {
+    width: 100vw;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $background-color;
+    z-index: 10;
+    transition: $main-transition;
+    opacity: 0;
+
+    @media (min-width: 320px) and (max-width: 768px) {
+      opacity: 1;
+
+      .header__links_list:first-child {
+        display: none;
+      }
+
+      .header__links_tel {
+        font-size: 0;
+        & > img {
+          width: 34px;
+          height: 34px;
+        }
+      }
+    }
+
+    &.active {
+      opacity: 1;
+    }
+
+    & > .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &_burger {
+      cursor: pointer;
+
+      & > span {
+        width: 40px;
+        height: 3px;
+
+        position: relative;
+        display: block;
+
+        border-radius: 1px;
+        background-color: $heading-color;
+
+        &::after,
+        &::before {
+          content: " ";
+          display: block;
+          position: absolute;
+
+          width: 40px;
+          height: 3px;
+
+          background-color: $heading-color;
+          transition: $main-transition;
+        }
+
+        &::after {
+          top: 8px;
+        }
+
+        &::before {
+          bottom: 8px;
+        }
+      }
+
+      &.active {
+        & > span {
+          background-color: transparent;
+
+          &::after {
+            top: 0;
+            transform: rotate(45deg);
+            background-color: $accent-color;
+          }
+
+          &::before {
+            bottom: 0;
+            transform: rotate(-45deg);
+            background-color: $accent-color;
+          }
+        }
+      }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    max-width: 944px;
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    top: 70px;
+    left: 0;
+    background-color: $background-color;
+    z-index: 10;
+
+    transform: translateX(-100%);
+    transition: $main-transition;
+
+    @media (max-width: 900px) {
+      max-width: 100vw;
+    }
+
+    &.active {
+      transform: translateX(0);
+    }
+
+    &_container {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+      padding-left: calc(100vw * 0.15);
+      margin-top: 56px;
+
+      & > ul {
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+
+        & > li > a {
+          @include par-two;
+          color: $heading-color;
+          transition: $main-transition;
+          position: relative;
+
+          @media (hover: hover) {
+            &:hover {
+              color: $accent-color;
+
+              &::before {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
